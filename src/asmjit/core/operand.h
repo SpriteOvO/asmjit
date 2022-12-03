@@ -64,9 +64,9 @@ enum class RegType : uint8_t {
   kGp8Hi = 4,
   //! 16-bit general purpose register (X86).
   kGp16 = 5,
-  //! 32-bit general purpose register (X86|ARM).
+  //! 32-bit general purpose register (X86|ARM|RISC-V).
   kGp32 = 6,
-  //! 64-bit general purpose register (X86|ARM).
+  //! 64-bit general purpose register (X86|ARM|RISC-V).
   kGp64 = 7,
   //! 8-bit view of a vector register (ARM).
   kVec8 = 8,

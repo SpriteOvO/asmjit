@@ -15,6 +15,24 @@ ASMJIT_BEGIN_SUB_NAMESPACE(riscv64)
 
 // TODO: [RISC-V] `#define ASMJIT_INST_` macros
 
+#define ASMJIT_INST_0x(NAME, INST_ID) \
+  inline Error NAME() { return _emitter()->_emitI(INST_ID); }
+
+#define ASMJIT_INST_1x(NAME, INST_ID, T0) \
+  inline Error NAME(const T0& o0) { return _emitter()->_emitI(INST_ID, o0); }
+
+#define ASMJIT_INST_2x(NAME, INST_ID, T0, T1) \
+  inline Error NAME(const T0& o0, const T1& o1) { return _emitter()->_emitI(INST_ID, o0, o1); }
+
+#define ASMJIT_INST_3x(NAME, INST_ID, T0, T1, T2) \
+  inline Error NAME(const T0& o0, const T1& o1, const T2& o2) { return _emitter()->_emitI(INST_ID, o0, o1, o2); }
+
+#define ASMJIT_INST_4x(NAME, INST_ID, T0, T1, T2, T3) \
+  inline Error NAME(const T0& o0, const T1& o1, const T2& o2, const T3& o3) { return _emitter()->_emitI(INST_ID, o0, o1, o2, o3); }
+
+#define ASMJIT_INST_5x(NAME, INST_ID, T0, T1, T2, T3, T4) \
+  inline Error NAME(const T0& o0, const T1& o1, const T2& o2, const T3& o3, const T4& o4) { return _emitter()->_emitI(INST_ID, o0, o1, o2, o3, o4); }
+
 //! \addtogroup asmjit_riscv64
 //! \{
 
@@ -35,7 +53,45 @@ struct EmitterExplicitT {
   //! \endcond
 
   // ${riscv64::EmitterExplicit:Begin}
-  // TODO: [RISC-V] See `EmitterExplicitT` of `a32`, try to generate instructions using 'https://github.com/riscv/riscv-opcodes'
+  // ------------------- Automatically generated, do not edit -------------------
+  ASMJIT_INST_3x(add, Inst::kIdAdd, Gp, Gp, Gp)
+  ASMJIT_INST_3x(addi, Inst::kIdAddi, Gp, Gp, Imm)
+  ASMJIT_INST_3x(and_, Inst::kIdAnd, Gp, Gp, Gp)
+  ASMJIT_INST_3x(andi, Inst::kIdAndi, Gp, Gp, Imm)
+  ASMJIT_INST_2x(auipc, Inst::kIdAuipc, Gp, Imm)
+  ASMJIT_INST_4x(beq, Inst::kIdBeq, Imm, Gp, Gp, Imm)
+  ASMJIT_INST_4x(bge, Inst::kIdBge, Imm, Gp, Gp, Imm)
+  ASMJIT_INST_4x(bgeu, Inst::kIdBgeu, Imm, Gp, Gp, Imm)
+  ASMJIT_INST_4x(blt, Inst::kIdBlt, Imm, Gp, Gp, Imm)
+  ASMJIT_INST_4x(bltu, Inst::kIdBltu, Imm, Gp, Gp, Imm)
+  ASMJIT_INST_4x(bne, Inst::kIdBne, Imm, Gp, Gp, Imm)
+  ASMJIT_INST_0x(ebreak, Inst::kIdEbreak)
+  ASMJIT_INST_0x(ecall, Inst::kIdEcall)
+  ASMJIT_INST_5x(fence, Inst::kIdFence, Imm, Imm, Imm, Gp, Gp)
+  ASMJIT_INST_2x(jal, Inst::kIdJal, Gp, Imm)
+  ASMJIT_INST_3x(jalr, Inst::kIdJalr, Gp, Gp, Imm)
+  ASMJIT_INST_3x(lb, Inst::kIdLb, Gp, Gp, Imm)
+  ASMJIT_INST_3x(lbu, Inst::kIdLbu, Gp, Gp, Imm)
+  ASMJIT_INST_3x(lh, Inst::kIdLh, Gp, Gp, Imm)
+  ASMJIT_INST_3x(lhu, Inst::kIdLhu, Gp, Gp, Imm)
+  ASMJIT_INST_2x(lui, Inst::kIdLui, Gp, Imm)
+  ASMJIT_INST_3x(lw, Inst::kIdLw, Gp, Gp, Imm)
+  ASMJIT_INST_3x(or_, Inst::kIdOr, Gp, Gp, Gp)
+  ASMJIT_INST_3x(ori, Inst::kIdOri, Gp, Gp, Imm)
+  ASMJIT_INST_4x(sb, Inst::kIdSb, Imm, Gp, Gp, Imm)
+  ASMJIT_INST_4x(sh, Inst::kIdSh, Imm, Gp, Gp, Imm)
+  ASMJIT_INST_3x(sll, Inst::kIdSll, Gp, Gp, Gp)
+  ASMJIT_INST_3x(slt, Inst::kIdSlt, Gp, Gp, Gp)
+  ASMJIT_INST_3x(slti, Inst::kIdSlti, Gp, Gp, Imm)
+  ASMJIT_INST_3x(sltiu, Inst::kIdSltiu, Gp, Gp, Imm)
+  ASMJIT_INST_3x(sltu, Inst::kIdSltu, Gp, Gp, Gp)
+  ASMJIT_INST_3x(sra, Inst::kIdSra, Gp, Gp, Gp)
+  ASMJIT_INST_3x(srl, Inst::kIdSrl, Gp, Gp, Gp)
+  ASMJIT_INST_3x(sub, Inst::kIdSub, Gp, Gp, Gp)
+  ASMJIT_INST_4x(sw, Inst::kIdSw, Imm, Gp, Gp, Imm)
+  ASMJIT_INST_3x(xor_, Inst::kIdXor, Gp, Gp, Gp)
+  ASMJIT_INST_3x(xori, Inst::kIdXori, Gp, Gp, Imm)
+  // ----------------------------------------------------------------------------
   // ${riscv64::EmitterExplicit:End}
 };
 
